@@ -52,7 +52,8 @@ result = array.collect do |ar|
 		s  << n_paranthesis_string(i)
 	end
 s
-end.reverse.join(' | ')
+end.reverse.join(' , ')
 
-puts "\nResult"
+puts "\nResult:"
 puts result
+puts
