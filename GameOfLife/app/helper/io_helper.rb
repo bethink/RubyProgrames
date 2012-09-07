@@ -1,7 +1,7 @@
 class IOHelper
-  def self.parse_row(row)
+  def self.row_states(row)
     row.split(/\s+/).each do |state|
-      state[/[xX]/] ? Cell : 1
+      state[/[xX]/] ? true : false
     end
   end
 end

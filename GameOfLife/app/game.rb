@@ -7,7 +7,7 @@ class Game
   end
 
   def next_generation
-    self.generation.tick
+    self.prev_generation = self.generation.tick
   end
 
 end

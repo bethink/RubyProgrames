@@ -1,7 +1,7 @@
 class Cell
-  attr_accessor :state, :prev_state
+  attr_accessor :state, :prev_state, :x, :y
 
-  def initialize(state)
+  def initialize(x, y, state)
     self.state = state
     self.prev_state = state
   end
@@ -16,10 +16,6 @@ class Cell
 
   def state_changed?
     self.state != self.prev_state
-  end
-
-  def neighbours
-
   end
 
   def live_neighbour_count
