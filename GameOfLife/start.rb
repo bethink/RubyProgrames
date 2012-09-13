@@ -23,14 +23,6 @@ while (row != "-1")
   x += 1 unless row.empty?
 end
 
-puts '===='
-game.print_generation
-puts '===='
-
 game.next_generation
 game.print_generation
-#if item.nil?
-#  raise InvalidInputException, "Invalid input item \"#{input_str}\""
-#end
-
 

@@ -42,13 +42,13 @@ class Cell
   end  
 
   def can_get_life?
-    self.live_neighbour_count = 3
+    self.live_neighbour_count == 3
   end
 
   def next_generation_cell
-    
+
     new_cell = Cell.new(self.x, self.y, self.state)
-    
+
     if self.live?
       if self.lonely? or self.over_crowdy?
         new_cell.kill

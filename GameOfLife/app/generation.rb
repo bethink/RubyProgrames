@@ -25,6 +25,7 @@ class Generation
 
     live_neighbour_count = 0
 
+
     m = cell_at(x-1, y)
     n = cell_at(x+1, y)
 
@@ -45,10 +46,10 @@ class Generation
     @cells.each_pair do |x, array|
       array.each_with_index do |cell, y|
         self.neighbours(cell)
-        new_generation.add_cell(x, y, cell.next_generation_cell) 
+        next_gen_cell = cell.next_generation_cell
+        new_generation.add_cell(x, y, next_gen_cell.state)
       end
     end
-
     return new_generation
   end
   
