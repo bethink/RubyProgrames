@@ -25,7 +25,6 @@ class Generation
 
     live_neighbour_count = 0
 
-
     m = cell_at(x-1, y)
     n = cell_at(x+1, y)
 
@@ -52,5 +51,29 @@ class Generation
     end
     return new_generation
   end
-  
+
+  def add_dead_cell_row_at(x)
+    @cells[x] = []
+    ( self.max_row_size + 2 ).times do |i|
+      @cells[x] << Cell.new(x, i, false)
+    end
+  end
+
+  def max_row_size
+    @cells.first.last.length
+  end
+
+  def add_dead_cell_at_terminal
+    @cells.keys do |key|
+      array = @cells[key]
+      @cells[key] += [false] + array + [false]
+    end
+  end
+
+  def add_outer_layer
+    self.add_dead_cell_at_terminal
+    self.add_dead_cell_row_at(0)
+    self.add_dead_cell_row_at(self.cells.keys.length)
+  end
+
 end

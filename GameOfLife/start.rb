@@ -7,7 +7,7 @@ Dir["#{File.dirname(__FILE__)}/app/*.rb", "#{File.dirname(__FILE__)}/app/helper/
 puts 'Enter items one by one'
 
 row = gets.strip
-x = 0
+x = 1
 
 game = Game.new
 generation = game.generation
@@ -23,6 +23,8 @@ while (row != "-1")
   x += 1 unless row.empty?
 end
 
-game.next_generation
-game.print_generation
+generation.add_outer_layer
 
+game.next_generation
+puts "Result:\n"
+game.print_generation

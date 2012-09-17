@@ -1,7 +1,7 @@
 class IOHelper
   def self.row_states(row)
     row.split(/\s+/).collect do |state|
-      state[/[xX]/] ? true : false
+      (state[/[xX]/] ? true : false)
     end
   end
   
