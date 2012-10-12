@@ -72,7 +72,6 @@ class Generation
   #end
 
   def add_outer_layer
-    #self.add_dead_cell_at_terminal
     self.add_dead_cell_row_at(0)
     self.add_dead_cell_row_at(self.cells.length)
   end

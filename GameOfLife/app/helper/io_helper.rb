@@ -19,12 +19,6 @@ class IOHelper
       result << "\n"
     end
 
-    #generation.cells.each_pair do |x, array|
-    #  array.each do |cell|
-    #    result << cell.printable_state
-    #  end
-    #  result << "\n"
-    #end
     puts result
   end
 
