@@ -43,6 +43,7 @@ class Generation
   def tick
     new_generation = Generation.new
     @cells.each_pair do |x, array|
+
       array.each_with_index do |cell, y|
         self.neighbours(cell)
         next_gen_cell = cell.next_generation_cell
@@ -54,7 +55,7 @@ class Generation
 
   def add_dead_cell_row_at(x)
     @cells[x] = []
-    ( self.max_row_size + 2 ).times do |i|
+    self.max_row_size.times do |i|
       @cells[x] << Cell.new(x, i, false)
     end
   end
@@ -63,17 +64,17 @@ class Generation
     @cells.first.last.length
   end
 
-  def add_dead_cell_at_terminal
-    @cells.keys do |key|
-      array = @cells[key]
-      @cells[key] += [false] + array + [false]
-    end
-  end
+  #def add_dead_cell_at_terminal
+  #  @cells.each_pair do |key, row|
+  #    array = @cells[key]
+  #    @cells[key] = [Cell.new(key, 0, false)] + row + [Cell.new(key, array.length, false)]
+  #  end
+  #end
 
   def add_outer_layer
-    self.add_dead_cell_at_terminal
+    #self.add_dead_cell_at_terminal
     self.add_dead_cell_row_at(0)
-    self.add_dead_cell_row_at(self.cells.keys.length)
+    self.add_dead_cell_row_at(self.cells.length)
   end
 
 end
